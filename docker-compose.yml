@@ -1,0 +1,26 @@
+version: '3'
+services:
+ db:
+    build: ./db
+    container_name: 21BCP125_database
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3307:3306"
+ backend:
+    build: ./backend
+    container_name: 21BCP125_backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+ frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../frontend-nginx/Dockerfile
+    container_name: 21BCP125_frontend
+    ports:
+      - "80:80"
