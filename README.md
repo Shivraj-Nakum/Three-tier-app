@@ -131,7 +131,7 @@ This project demonstrates a three-tier application using Docker, MySQL, Node.js,
 
   
 
-## Dockerfile Explanation for frontend
+## Dockerfile Explanation for database 
 
   
 
